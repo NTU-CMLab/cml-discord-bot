@@ -18,13 +18,13 @@ class CMLAccountManager():
 
     def find_user(self, username):
         try:
-            cursor = self.conn.cursor()
+            cursor = self.conn.cursor(buffered=True)
         except:
             if self.conn.is_connected():
                 self.conn.close()
             print("Restart DB Connection")
             self.conn = mysql.connector.connect(**self.config)
-            cursor = self.conn.cursor()
+            cursor = self.conn.cursor(buffered=True)
 
         query = "SELECT * FROM `People` WHERE `account`=%s"
         param = (username, )
