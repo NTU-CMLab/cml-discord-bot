@@ -63,7 +63,10 @@ async def bind(ctx: commands.Context, username: str):
     elif group == 'DSP':
         dc_group = 'DSP 組'
     elif group == 'GRAPHICS':
-        dc_group = 'G 組'
+        if teacher == 'robin':
+            dc_group = 'Robin 組'
+        else:
+            dc_group = 'G 組'
     elif group == 'NETWORK':
         dc_group = 'N 組'
     elif group == 'AIMM':
